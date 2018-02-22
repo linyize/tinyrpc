@@ -48,6 +48,8 @@ class WsgiServerTransport(ServerTransport):
             if not isinstance(reply, str):
                 raise TypeError('str expected')
         else:
+            if isinstance(reply, str):
+                reply = reply.encode()
             if not isinstance(reply, bytes):
                 raise TypeError('bytes expected')
 
